@@ -26,10 +26,9 @@ mix
 		postCss: [tailwindcss('./tailwind.config.js')]
 	})
 	.purgeCss({
-		folders: ['source']
+		folders: ['source'],
 		extensions: ['html', 'js', 'php', 'vue'],
 		// Other options are passed through to Purgecss
 		whitelistPatterns: [/language/, /hljs/],
 	})
 	.version();
-	
