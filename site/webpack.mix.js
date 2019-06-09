@@ -1,6 +1,6 @@
 let mix = require('laravel-mix');
-let build = require('./tasks/build.js');
 const tailwindcss = require('tailwindcss');
+let build = require('./tasks/build.js');
 require('laravel-mix-purgecss');
 
 mix.disableSuccessNotifications();
@@ -13,7 +13,7 @@ mix.webpackConfig({
 			'source/**/*.md',
 			'source/**/*.php',
 			'source/**/*.scss',
-			'!source/**/_tmp/*'
+			'!source/**/_tmp/*',
 		])
 	]
 });
@@ -26,32 +26,10 @@ mix
 		postCss: [tailwindcss('./tailwind.config.js')]
 	})
 	.purgeCss({
-		enabled: true,
-
 		folders: ['source']
-
-		// extensions: ['html', 'js', 'php'],
-
+		extensions: ['html', 'js', 'php', 'vue'],
 		// Other options are passed through to Purgecss
-		// whitelistPatterns: [/language/, /hljs/],
-
-		// whitelistPatternsChildren: [/^markdown$/]
+		whitelistPatterns: [/language/, /hljs/],
 	})
 	.version();
-
-// if (mix.config.inProduction) {
-// 	mix
-// 		.purgeCss({
-// 			enabled: true,
-
-// 			folders: ['source']
-
-// 			// extensions: ['html', 'js', 'php'],
-
-// 			// Other options are passed through to Purgecss
-// 			// whitelistPatterns: [/language/, /hljs/],
-
-// 			// whitelistPatternsChildren: [/^markdown$/]
-// 		})
-// 		.version();
-// }
+	
