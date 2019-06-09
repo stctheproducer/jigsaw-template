@@ -13,7 +13,7 @@ mix.webpackConfig({
 			'source/**/*.md',
 			'source/**/*.php',
 			'source/**/*.scss',
-			'!source/**/_tmp/*',
+			'!source/**/_tmp/*'
 		])
 	]
 });
@@ -29,6 +29,6 @@ mix
 		folders: ['source'],
 		extensions: ['html', 'js', 'php', 'vue'],
 		// Other options are passed through to Purgecss
-		whitelistPatterns: [/language/, /hljs/],
+		whitelistPatterns: [/language/, /hljs/]
 	})
 	.version();
